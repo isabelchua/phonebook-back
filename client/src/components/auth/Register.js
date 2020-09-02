@@ -1,50 +1,77 @@
-import React from 'react'
-import { useState } from 'react'
+import React from "react";
+import { useState } from "react";
 
 const Register = () => {
 	const [user, setUser] = useState({
-		name: '',
-		email: '',
-		password: '',
-		password2: ''
-	})
+		name: "",
+		email: "",
+		password: "",
+		password2: ""
+	});
 
-	const {name, email,password, password2} = user;
+	const { name, email, password, password2 } = user;
 
-	const onChange = e => setUser({ ...user, [e.target.name]: e.target.value })
+	const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
 	const onSubmit = e => {
-		e.preventDefault()
-		
-	}
- 
+		e.preventDefault();
+		console.log("Register submit");
+	};
 
 	return (
-		<div className='form-container'>
+		<div className="form-container">
 			<h1>
 				Account <span className="text-primary">Register</span>
 			</h1>
 			<form onSubmit={onSubmit}>
 				<div className="form-group">
 					<label htmlFor="name">Name</label>
-					<input type="text" name="name" value{name} onChange={onChange} id=""/>
+					<input
+						type="text"
+						name="name"
+						value={name}
+						onChange={onChange}
+						id=""
+					/>
 				</div>
 				<div className="form-group">
 					<label htmlFor="email">Email</label>
-					<input type="email" name="email" value{email} onChange={onChange} id=""/>
+					<input
+						type="email"
+						name="email"
+						value={email}
+						onChange={onChange}
+						id=""
+					/>
 				</div>
 				<div className="form-group">
 					<label htmlFor="password">Password</label>
-					<input type="password" name="password" value{password} onChange={onChange} id=""/>
+					<input
+						type="password"
+						name="password"
+						value={password}
+						onChange={onChange}
+						id=""
+					/>
 				</div>
 				<div className="form-group">
 					<label htmlFor="password2">Confirm Password</label>
-					<input type="password2" name="password2" value{password2} onChange={onChange} id=""/>
+					<input
+						type="password"
+						name="password2"
+						value={password2}
+						onChange={onChange}
+						id=""
+					/>
 				</div>
-				<input type="submit" value="Register" className="btn btn-primary btn-block"/>
+				<input
+					type="submit"
+					value="Register"
+					className="btn btn-primary btn-block"
+				/>
 			</form>
 		</div>
-	)
-}
+	);
+};
 
-export default Register
+export default Register;
