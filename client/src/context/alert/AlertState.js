@@ -1,18 +1,12 @@
-import React, { useReducer } from 'react';
-import {nanoid} from nanoid;
-import AlertContext from './alertContext';
-import alertReducer from './alertReducer';
+import React, { useReducer } from "react";
+import { nanoid } from "nanoid";
+import AlertContext from "./alertContext";
+import alertReducer from "./alertReducer";
 
-import {
-	SET_ALERT,
-	REMOVE_ALERT
-} from '../types';
+import { SET_ALERT, REMOVE_ALERT } from "../types";
 
 const AlertState = props => {
-	const initialState = 
-		[]
-	;
-
+	const initialState = [];
 	const [state, dispatch] = useReducer(alertReducer, initialState);
 
 	// Set alert
@@ -20,24 +14,21 @@ const AlertState = props => {
 		const id = nanoid(10);
 		dispatch({
 			type: SET_ALERT,
-			payload: {msg, type, id}
-		})
-		setTimeout(()=> dispatch({type: REMOVE_ALERT, payload: id}), timeout)
-	}
+			payload: { msg, type, id }
+		});
+		setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), timeout);
+	};
 
 	return (
-		<AuthContext.Provider
+		<AlertContext.Provider
 			value={{
-				token: state.token,
-				isAuthenticated: state.isAuthenticated,
-				loading: state.loading,
-				user: state.user,
-				error: state.error
+				alerts: state,
+				setAlert
 			}}
 		>
 			{props.children}
-		</AuthContext.Provider>
+		</AlertContext.Provider>
 	);
 };
 
-export default AuthState;
+export default AlertState;
