@@ -27,7 +27,7 @@ const AuthState = props => {
 	const [state, dispatch] = useReducer(authReducer, initialState);
 
 	// Load user
-	const loadUser = () => async () => {
+	const loadUser = async () => {
 		// @todo - load token into global headers
 		// if local storage exists then setauth to local storage
 		if (localStorage.token) {
