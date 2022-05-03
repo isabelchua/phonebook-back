@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react';
-import { nanoid } from 'nanoid';
+import React, { useReducer } from "react";
+import { nanoid } from "nanoid";
 
-import ContactContext from './contactContext';
-import contactReducer from './contactReducer';
+import ContactContext from "./contactContext";
+import contactReducer from "./contactReducer";
 
 import {
 	GET_CONTACTS,
@@ -15,31 +15,31 @@ import {
 	CLEAR_CONTACTS,
 	CLEAR_FILTER,
 	CONTACT_ERROR
-} from '../types';
+} from "../types";
 
 const ContactState = props => {
 	const initialState = {
 		contacts: [
 			{
 				id: 1,
-				name: 'Hannah',
-				email: 'hanna@gmail.com',
-				phone: '231314324',
-				type: 'admin'
+				name: "Hannah",
+				email: "hanna@gmail.com",
+				phone: "231314324",
+				type: "admin"
 			},
 			{
 				id: 2,
-				name: 'Stella',
-				email: 'stella@gmail.com',
-				phone: '56314324',
-				type: 'member'
+				name: "Stella",
+				email: "stella@gmail.com",
+				phone: "56314324",
+				type: "member"
 			},
 			{
 				id: 3,
-				name: 'Forrest',
-				email: 'forrest@gmail.com',
-				phone: '65756754',
-				type: 'member'
+				name: "Forrest",
+				email: "forrest@gmail.com",
+				phone: "65756754",
+				type: "member"
 			}
 		],
 		current: null,

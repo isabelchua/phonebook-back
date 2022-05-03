@@ -9,7 +9,7 @@ import {
 	CLEAR_CONTACTS,
 	CLEAR_FILTER,
 	CONTACT_ERROR
-} from '../types';
+} from "../types";
 
 export default (state, action) => {
 	switch (action.type) {
@@ -48,7 +48,7 @@ export default (state, action) => {
 				...state,
 				filtered: state.contacts.filter(contact => {
 					// gi = global insensitive
-					const regex = new RegExp(`${action.payload}`, 'gi');
+					const regex = new RegExp(`${action.payload}`, "gi");
 					return contact.name.match(regex) || contact.email.match(regex);
 				})
 			};
